@@ -105,46 +105,82 @@ analyzeBtn.addEventListener("click", function(){
     };
     reader.readAsText(file);
 });
-function processLogs(content){
-    const lines=content.split("\n");
-    logsData=[];
-    successCount=0;
-    failureCount=0;
-    lockedCount=0;
-    adminCount=0;
-        for(let i=1;i<lines.length;i++){
-        const row=lines[i].split(",");
-        if(row.length<2)
-            continue;
-        const time=row[0].replace(/"/g,"").trim();
-        const eventId=row[1].replace(/"/g,"").replace(/\r/g,"").trim();
-        const eventInfo=eventMap[eventId];
-        console.log("Event ID:",eventId,"Mapped:",eventInfo);
-        const type=eventInfo?eventInfo.type:"Unknown Event";
-        const message=eventInfo?eventInfo.message:"Event ID Not Mapped";
-        if(eventId==="4624"){
-            successCount++;
+function parseCSV(text) {
+    let result = [];
+    let row = [];
+    let inQuotes = false;
+    let currentValue = "";
+    for (let i = 0; i < text.length; i++) {
+        let char = text[i];
+        if (inQuotes) {
+            if (char === '"') {
+                if (i + 1 < text.length && text[i + 1] === '"') {
+                    currentValue += '"'; 
+                    i++;
+                } else {
+                    inQuotes = false; 
+                }
+            } else {
+                currentValue += char; 
+            }
+        } else {
+            if (char === '"') {
+                inQuotes = true;
+            } else if (char === ',') {
+                row.push(currentValue);
+                currentValue = "";
+            } else if (char === '\n') {
+                row.push(currentValue);
+                result.push(row);
+                row = [];
+                currentValue = "";
+            } else if (char !== '\r') {
+                currentValue += char;
+            }
         }
-        if(eventId==="4625"){
-            failureCount++;
+    }
+    if (currentValue || row.length > 0) {
+        row.push(currentValue);
+        result.push(row);
+    }
+    return result;
+}
+function processLogs(content) {
+    const rows = parseCSV(content); 
+    
+    logsData = [];
+    successCount = 0;
+    failureCount = 0;
+    lockedCount = 0;
+    adminCount = 0;
+    for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (row.length < 4) continue; 
+
+        const time = row[1] ? row[1].trim() : "Unknown";
+        const eventId = row[3] ? row[3].trim() : "Unknown";
+        const eventInfo = eventMap[eventId];
+        if (!eventInfo) {
+            continue; 
         }
-        if(eventId==="4740"){
-            lockedCount++;
-        }
-        if(eventId==="4672"){
-            adminCount++;
-        }
+        const type = eventInfo.type;
+        const message = eventInfo.message;
+
+        if (eventId === "4624") successCount++;
+        if (eventId === "4625") failureCount++;
+        if (eventId === "4740") lockedCount++;
+        if (eventId === "4672") adminCount++;
         logsData.push({
-            time,eventId,type,message
+            time, eventId, type, message
         });
     }
-    document.getElementById("totalLogs").innerText=logsData.length;
-    document.getElementById("successLogs").innerText=successCount;
-    document.getElementById("failedlogs").innerText=failureCount;
-    document.getElementById("lockedlogs").innerText=lockedCount;
-    document.getElementById("adminLogs").innerText=adminCount;
+    document.getElementById("totalLogs").innerText = logsData.length;
+    document.getElementById("successLogs").innerText = successCount;
+    document.getElementById("failedlogs").innerText = failureCount;
+    document.getElementById("lockedlogs").innerText = lockedCount;
+    document.getElementById("adminLogs").innerText = adminCount;
     calculateSeverity(failureCount);
-    displayLogs(logsData.slice(0,50));
+    displayLogs(logsData.slice(0, 50));
     updateChart();
 }
 const ctx = document.getElementById("eventChart").getContext("2d");
