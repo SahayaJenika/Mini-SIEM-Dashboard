@@ -187,22 +187,26 @@ canvas{
 }
 .login-page {
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f8fbfe; 
-}
+    background: #f8fbfe;
+    margin: 0;
+    padding: 15px; 
+    box-sizing: border-box;}
 .login-box {
-    width: 100%;
-    max-width: 320px;
+   width: 100%;        
+    max-width: 400px;   
     padding: 30px;
     background: #ffffff;
     border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 136, 206, 0.1);
+    border: 1px solid #e0f0f9;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 10px 25px rgba(0, 136, 206, 0.1);
-    border: 1px solid #e0f0f9;
+    box-sizing: border-box;
 }
 .login-box h1 {
     font-size: 24px;
@@ -211,9 +215,11 @@ canvas{
     text-align: center;
 }
 .login-box input {
-    margin: 0;
-    width: 100%;
+   width: 100%;
     box-sizing: border-box;
+    padding: 12px;
+    margin: 0; 
+    font-size: 16px; 
 }
 .login-box button {
     margin: 10px 0 0 0;
@@ -223,26 +229,38 @@ body.dark-mode {
     background: #0f172a; 
     color: #e2e8f0;
 }
-body.dark-mode h1 { color: #00a8e4; }
-body.dark-mode h2 { color: #94a3b8; border-color: #1e293b; }
+body.dark-mode h1 {
+     color: #00a8e4; 
+    }
+body.dark-mode h2 {
+     color: #94a3b8; 
+     border-color: #1e293b; 
+    }
 body.dark-mode .card, body.dark-mode .login-box, body.dark-mode canvas, body.dark-mode .table-container {
     background: #1e293b;
     border-color: #334155;
 }
-body.dark-mode thead { background: #0f172a; }
-body.dark-mode th { color: #00a8e4; border-color: #334155; }
-body.dark-mode td { border-color: #334155; color: #cbd5e1; }
-body.dark-mode tr:hover td { background: #334155; color: #00a8e4; }
-
-
+body.dark-mode thead {
+     background: #0f172a; 
+    }
+body.dark-mode th {
+     color: #00a8e4; 
+     border-color: #334155; 
+    }
+body.dark-mode td {
+     border-color: #334155; 
+     color: #cbd5e1; 
+    }
+body.dark-mode tr:hover td {
+     background: #334155; 
+     color: #00a8e4; 
+    }
 body.dark-mode input, 
 body.dark-mode select { 
     background: #1e293b; 
     color: #ffffff; 
     border-color: #334155; 
 }
-
-
 body.dark-mode input::placeholder {
     color: #94a3b8; 
     opacity: 1; 
@@ -275,6 +293,18 @@ body.dark-mode .severity-box {
     align-items: center;
 }
 @media screen and (max-width: 768px) {
+    .login-page {
+        padding: 10px; 
+    }
+
+    .login-box {
+        padding: 20px; 
+        gap: 10px;
+    }
+
+    .login-box h1 {
+        font-size: 18px; 
+    }
     .top-actions {
         position: static !important; 
         display: flex;
