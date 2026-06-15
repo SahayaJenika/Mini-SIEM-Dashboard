@@ -1,3 +1,6 @@
+if(!localStorage.getItem("loggedIn")!=="true"){
+    window.Location.href="index.html";
+}
 const severityBox=document.getElementById("severityBox");
 const searchInput=document.getElementById("searchInput");
 const logBody=document.getElementById("logBody");
@@ -157,7 +160,7 @@ const eventChart=new Chart(ctx,{
 });
 document.getElementById("logoutBtn").addEventListener("click", function () {
     localStorage.removeItem("loggedIn"); 
-    window.location.href = "login.html"; 
+    window.location.href = "index.html"; 
 });
 document.getElementById("downloadBtn").addEventListener("click", function(){
     const report = `

@@ -4,7 +4,7 @@ loginBtn.addEventListener("click", function(){
     const password=document.getElementById("password").value;
     if(username==="admin" && password==="admin123"){
         localStorage.setItem("loggedIn","true");
-        window.location.href="index.html";
+        window.location.href="dashboard.html";
     }
 else{
     document.getElementById("message").innerText="Invalid Username or Password";

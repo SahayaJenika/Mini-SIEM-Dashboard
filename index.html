@@ -1,73 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mini SIEM Dashboard</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js/dist/driver.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <title>Mini SIEM Login</title>
+        <link rel="stylesheet" href="style.css"> 
     </head>
-    <body>
-        <div class="container">
-            <h1>MINI SIEM DASHBOARD</h1>
-            <button id="themeBtn">Light Mode</button>
-            <a href="https://forms.gle/yHu1U7fGrQcdMnAN9" id="feedbackBtn">Feedback</a>
-            <button id="logoutBtn">Logout</button>
-            <h2>Upload Security Logs</h2>
-            <input type="file" id="logFile">
-            <button id="analyzeBtn">Analyze Logs</button>
-            <button id="downloadBtn">Download Report</button>
-            <h2>Security Overview</h2>
-            <div class="stats-container">
-                <div class="card">
-                    <h3>Total Logs</h3>
-                    <p id="totalLogs">0</p>
-                </div>
-                <div class="card">
-                    <h3>Success Logins</h3>
-                    <p id="successLogs">0</p>
-                </div>
-                <div class="card">
-                    <h3>Failed Logins</h3>
-                    <p id="failedlogs">0</p>
-                </div>
-                <div class="card">
-                    <h3>Locked Accounts</h3>
-                    <p id="lockedlogs">0</p>
-                </div>
-                <div class="card">
-                    <h3>Admin Events</h3>
-                    <p id="adminLogs">0</p>
-                </div>
-            </div>
-            <h2>Security Severity</h2>
-            <div id="severityBox" class="severity-box">No Data Yet</div>
-            <h2>Search Logs</h2>
-            <input type="text" id="searchInput" placeholder="Search Event ID, Type or Message">
-            <select id="eventFilter">
-                <option value="all">All Events</option>
-                <option value="4624">Login Success</option>
-                <option value="4625">Login Failure</option>
-                <option value="4740">Account Locked</option>
-            </select>
-            <canvas id="eventChart"></canvas>
+    <body class="login-page">
+        <div class="login-container">
+        <div class="login-box">
+            <h1>Mini SIEM Login</h1>
+            <input type="text" id="username" placeholder="Username">
+            <br><br>
+            <input type="password" id="password" placeholder="Password">
+ <br><br>
+ <button id="loginBtn">Login</button>
+ <p id="message"></p>
         </div>
-        <h2>Log Analysis Results</h2>
-        <div class="table-container">
-        <table id="logTable">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Event ID</th>
-                    <th>Type</th>
-                    <th>Message</th>
-                </tr>
-            </thead>
-            <tbody id="logBody"></tbody>
-        </table>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/driver.js/dist/driver.js.iife.js"></script>
-        <script src="tour.js"></script>
-        <script src="script.js"></script>
+        <script src="login.js"></script>
     </body>
 </html>
