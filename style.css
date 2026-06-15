@@ -276,23 +276,22 @@ body.dark-mode .severity-box {
 }
 @media screen and (max-width: 768px) {
     .top-actions {
-        position: relative; 
-        top: 0;
-        right: 0;
-        justify-content: center;
-        flex-direction: column; 
-        margin: 20px 0 30px 0;
-        width: 100%; 
+        position: static !important; 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
     }
     h1 {
          font-size: 22px; 
         }
 .top-actions button, 
-.top-actions a { 
+    .top-actions a { 
         width: 100%; 
-        box-sizing: border-box; 
-        text-align: center;
         margin: 5px 0;
+        text-align: center;
+        box-sizing: border-box;
     }
 
 .stats-container {
