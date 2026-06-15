@@ -8,21 +8,20 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js/dist/driver.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
-    <body>
         <body>
         <div class="container">
-            <div class="top-actions">
-                <button id="themeBtn">Dark Mode</button>
-                <a href="https://forms.gle/yHu1U7fGrQcdMnAN9" id="feedbackBtn">Feedback</a>
-                <button id="logoutBtn">Logout</button>
-            </div>
-            <div class="logo-container">
+             <div class="logo-container">
                <img src="logo.png" alt="Company Logo" class="dashboard-logo">
             </div>
             <h1>MINI SIEM DASHBOARD</h1>
             <div class="about-section">
                 <h3>How It Works</h3>
                 <p><strong>Mini SIEM Dashboard</strong> simplifies security monitoring. Users export raw security logs from Windows Event Viewer as a CSV file and upload them to the dashboard. The system instantly <strong>analyzes</strong> the logs, automatically <strong>calculates the severity</strong> of potential threats (like repeated failed logins), and <strong>visualizes</strong> the data through interactive charts and tables for quick threat assessment.</p>
+            </div>
+            <div class="top-actions">
+                <button id="themeBtn">Dark Mode</button>
+                <a href="https://forms.gle/yHu1U7fGrQcdMnAN9" id="feedbackBtn">Feedback</a>
+                <button id="logoutBtn">Logout</button>
             </div>
             <h2>Upload Security Logs</h2>
             <input type="file" id="logFile">
