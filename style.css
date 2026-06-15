@@ -265,7 +265,6 @@ body.dark-mode .severity-box {
     .stats-container { grid-template-columns: 1fr 1fr; }
     .severity-box { width: 100%; max-width: none; box-sizing: border-box; }
 }
-/* ABOUT SECTION BOX */
 .about-section {
     background: #ffffff;
     padding: 20px 30px;
@@ -290,8 +289,6 @@ body.dark-mode .severity-box {
     margin: 0;
     font-size: 15px;
 }
-
-/* Make sure it looks good in Dark Mode too! */
 body.dark-mode .about-section {
     background: #1e293b;
     border-color: #334155;
