@@ -14,7 +14,7 @@ const tour=driver({
             description:"Click to analyze uploaded logs."
         }
     },{
-        element:"#severitBox",
+        element:"#severityBox",
         popover:{
             title:"Security Severity",
             description:"Shows risk level."
@@ -32,7 +32,4 @@ const tour=driver({
             description:"Search logs using Event ID or messsage."
         }
     }]
-});
-document.getElementById("tourBtn").addEventListener("click", function(){
-    tour.drive();
 });
