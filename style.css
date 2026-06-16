@@ -48,8 +48,8 @@ button:hover{
 }
 #feedbackBtn{
     display:inline-block;
-    background:#bdda57;
-    color:#1a3605;
+    background:linear-gradient(90deg, #0088ce, #00a8e4);
+    color:#ffffff;
     text-decoration:none;
     padding:10px 18px;
     border-radius:6px;
@@ -57,13 +57,13 @@ button:hover{
     font-weight:bold;
     cursor:pointer;
     transition:0.3s ease;
-    box-shadow:0 4px 6px rgba(189, 218, 87, 0.3);
+    box-shadow:0 4px 6px rgba(0, 168, 228, 0.2);
     margin:5px;
 }
 #feedbackBtn:hover{
     transform:translate(-2px);
-    background:#a8ca41;
-    box-shadow:0 6px 12px rgba(189, 218, 87, 0.5);
+    background: linear-gradient(90deg, #0077b6, #0096cc);
+    box-shadow:0 6px 12px rgba(0, 136, 206, 0.3);
 }
 input, select{
     padding:10px;
@@ -293,29 +293,29 @@ body.dark-mode .severity-box {
     align-items: center;
 }
 @media screen and (max-width: 768px) {
-    .login-page {
-        padding: 10px; 
-    }
+.login-page {       
+    padding: 10px; 
+}
 
-    .login-box {
-        padding: 20px; 
-        gap: 10px;
-    }
+.login-box {
+    padding: 20px; 
+    gap: 10px;
+}
 
-    .login-box h1 {
-        font-size: 18px; 
-    }
-    .top-actions {
-        position: static !important; 
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin: 20px 0;
-        padding: 0;
-    }
-    h1 {
-         font-size: 22px; 
-        }
+.login-box h1 {
+    font-size: 18px; 
+}
+.top-actions {
+    position: static !important; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0;
+}
+h1 {
+    font-size: 22px; 
+}
 .top-actions button, 
     .top-actions a { 
         width: 100%; 
